@@ -2,7 +2,9 @@
 
 namespace App;
 
-class CalcProxy
+use App\Interfaces\CalculatorProxy;
+
+class CalcProxy implements CalculatorProxy
 {
     protected $_calculator;
 
@@ -23,5 +25,9 @@ class CalcProxy
         $this->_validator->ValidateResult($result);
 
         return $result;
+    }
+
+    public function calculator(){
+        return $this->_calculator;
     }
 }
